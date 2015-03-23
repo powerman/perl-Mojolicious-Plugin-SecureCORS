@@ -28,7 +28,8 @@ my $builder = $class->new(
     requires => {
         'perl'                  => 5.010001,
         'version'               => '0.77',
-        'Mojolicious'           => 5.62,
+        'Mojolicious'           => 6.0,
+        'List::MoreUtils'       => 0.34,
 #         'Perl6::Export::Attrs'  => 0,
     },
     test_requires => {

@@ -12,7 +12,7 @@ build_requires:
 configure_requires:
   Module::Build: '0.4004'
 dynamic_config: 1
-generated_by: 'Module::Build version 0.4205, CPAN::Meta::Converter version 2.140640'
+generated_by: 'Module::Build version 0.4211, CPAN::Meta::Converter version 2.143240'
 license: mit
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -21,11 +21,12 @@ name: Mojolicious-Plugin-SecureCORS
 provides:
   Mojolicious::Plugin::SecureCORS:
     file: lib/Mojolicious/Plugin/SecureCORS.pm
-    version: v1.0.3
+    version: v1.0.4
 requires:
-  Mojolicious: '5.62'
+  List::MoreUtils: '0.34'
+  Mojolicious: '6'
   perl: '5.010001'
   version: '0.77'
 resources:
   license: http://www.opensource.org/licenses/mit-license.php
-version: v1.0.3
+version: v1.0.4

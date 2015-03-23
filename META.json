@@ -4,7 +4,7 @@
       "Alex Efros <powerman@cpan.org>"
    ],
    "dynamic_config" : 1,
-   "generated_by" : "Module::Build version 0.4205",
+   "generated_by" : "Module::Build version 0.4211",
    "license" : [
       "mit"
    ],
@@ -21,7 +21,8 @@
       },
       "runtime" : {
          "requires" : {
-            "Mojolicious" : "5.62",
+            "List::MoreUtils" : "0.34",
+            "Mojolicious" : "6",
             "perl" : "5.010001",
             "version" : "0.77"
          }
@@ -40,7 +41,7 @@
    "provides" : {
       "Mojolicious::Plugin::SecureCORS" : {
          "file" : "lib/Mojolicious/Plugin/SecureCORS.pm",
-         "version" : "v1.0.3"
+         "version" : "v1.0.4"
       }
    },
    "release_status" : "stable",
@@ -49,5 +50,5 @@
          "http://www.opensource.org/licenses/mit-license.php"
       ]
    },
-   "version" : "v1.0.3"
+   "version" : "v1.0.4"
 }

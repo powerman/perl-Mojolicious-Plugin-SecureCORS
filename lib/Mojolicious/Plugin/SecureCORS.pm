@@ -6,10 +6,11 @@ use utf8;
 use feature ':5.10';
 use Carp;
 
-use version; our $VERSION = qv('1.0.3');    # REMINDER: update Changes
+use version; our $VERSION = qv('1.0.4');    # REMINDER: update Changes
 
 # REMINDER: update dependencies in Build.PL
 use Mojo::Base 'Mojolicious::Plugin';
+use List::MoreUtils qw( any none );
 
 use constant DEFAULT_MAX_AGE => 1800;
 
@@ -24,7 +25,7 @@ sub register {
 
     $root->add_shortcut(under_strict_cors => sub {
         my ($r, @args) = @_;
-        return $r->bridge(@args)->to(cb => \&_strict);
+        return $r->under(@args)->to(cb => \&_strict);
     });
 
     $root->add_shortcut(cors => sub {
@@ -83,7 +84,7 @@ sub _preflight {
     # otherwise try to find route for actual request and use it options
     else {
         $match = Mojolicious::Routes::Match->new(root => $c->app->routes);
-        $match->match($c, {
+        $match->find($c, {
             method => $method,
             path => $c->req->url->path,
         });
@@ -107,7 +108,7 @@ sub _preflight {
             return $c->render(status => 204, data => q{});  # Bad Origin:
         }
     } else {
-        if (!grep {$_ eq q{*} || $_ eq $origin} split q{ }, $opt{origin}) {
+        if (none {$_ eq q{*} || $_ eq $origin} split q{ }, $opt{origin}) {
             return $c->render(status => 204, data => q{});  # Bad Origin:
         }
     }
@@ -115,12 +116,12 @@ sub _preflight {
     my $headers = $c->req->headers->header('Access-Control-Request-Headers');
     my @want_headers = map {lc} split /,\s*/ms, $headers // q{};
     if (ref $opt{headers} eq 'Regexp') {
-        if (grep {!/$opt{headers}/ms} @want_headers) {
+        if (any {!/$opt{headers}/ms} @want_headers) {
             return $c->render(status => 204, data => q{});  # Bad Access-Control-Request-Headers:
         }
     } else {
         my %good_headers = map {lc $_ => 1} split /,\s*/ms, $opt{headers};
-        if (grep {!exists $good_headers{$_}} @want_headers) {
+        if (any {!exists $good_headers{$_}} @want_headers) {
             return $c->render(status => 204, data => q{});  # Bad Access-Control-Request-Headers:
         }
     }
@@ -161,7 +162,7 @@ sub _request {
             return;     # Bad Origin:
         }
     } else {
-        if (!grep {$_ eq q{*} || $_ eq $origin} split q{ }, $opt{origin}) {
+        if (none {$_ eq q{*} || $_ eq $origin} split q{ }, $opt{origin}) {
             return;     # Bad Origin:
         }
     }
@@ -226,7 +227,7 @@ Mojolicious::Plugin::SecureCORS - Complete control over CORS
     # allow non-simple (with preflight) CORS on this route
     $r->cors(…);
 
-    # create bridge to protect all nested routes
+    # create under to protect all nested routes
     $r = $app->routes->under_strict_cors('/resource');
 
 
@@ -387,11 +388,11 @@ This route use "headers" condition, so you can add your own handler for
 OPTIONS method on same path after this one, to handle non-CORS OPTIONS
 requests on same path.
 
-=item $bridge = $r->under_strict_cors(…)
+=item $route = $r->under_strict_cors(…)
 
-Accept same params as L<Mojolicious::Routes::Route/"bridge">.
+Accept same params as L<Mojolicious::Routes::Route/"under">.
 
-Under returned bridge CORS requests to any route which isn't configured
+Under returned route CORS requests to any route which isn't configured
 for CORS (i.e. won't have C<'cors.origin'> in route's default parameters)
 will be rendered as "403 Forbidden".
 
