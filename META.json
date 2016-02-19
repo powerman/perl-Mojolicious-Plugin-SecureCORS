@@ -56,7 +56,7 @@
    "provides" : {
       "Mojolicious::Plugin::SecureCORS" : {
          "file" : "lib/Mojolicious/Plugin/SecureCORS.pm",
-         "version" : "v1.0.4"
+         "version" : "v2.0.0"
       }
    },
    "release_status" : "stable",
@@ -71,6 +71,6 @@
          "web" : "https://github.com/powerman/perl-Mojolicious-Plugin-SecureCORS"
       }
    },
-   "version" : "v1.0.4"
+   "version" : "v2.0.0"
 }
 

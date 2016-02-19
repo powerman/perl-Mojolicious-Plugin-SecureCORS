@@ -3,7 +3,7 @@ package Mojolicious::Plugin::SecureCORS;
 use Mojo::Base 'Mojolicious::Plugin';
 use Carp;
 
-our $VERSION = 'v1.0.4';
+our $VERSION = 'v2.0.0';
 
 use List::MoreUtils qw( any none );
 
@@ -199,7 +199,7 @@ Mojolicious::Plugin::SecureCORS - Complete control over CORS
 
 =head1 VERSION
 
-This document describes Mojolicious::Plugin::SecureCORS version v1.0.4
+This document describes Mojolicious::Plugin::SecureCORS version v2.0.0
 
 
 =head1 SYNOPSIS
