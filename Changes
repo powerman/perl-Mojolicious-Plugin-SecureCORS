@@ -1,6 +1,7 @@
 Revision history for Mojolicious-Plugin-SecureCORS
 
 {{$NEXT}}
+	- Reformat doc.
 
 v2.0.0  2016-02-19 09:47:11 EET
 	- Switch to Dist::Milla.
