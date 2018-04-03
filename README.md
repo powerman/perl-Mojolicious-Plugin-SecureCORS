@@ -7,7 +7,7 @@ Mojolicious::Plugin::SecureCORS - Complete control over CORS
 
 # VERSION
 
-This document describes Mojolicious::Plugin::SecureCORS version v2.0.0
+This document describes Mojolicious::Plugin::SecureCORS version v2.0.1
 
 # SYNOPSIS
 
@@ -91,7 +91,7 @@ predefined defaults for their nested routes.
 - `'cors.credentials' => undef` (default)
 
     While handling preflight request true/false value will tell browser to
-    send or not send credentials (cookies, http auth, ssl certificate) with
+    send or not send credentials (cookies, http auth, SSL certificate) with
     actual request.
 
     While handling simple/actual request if set to false and browser has sent
@@ -262,11 +262,11 @@ Feel free to fork the repository and submit pull requests.
 
 # AUTHOR
 
-Alex Efros &lt;powerman@cpan.org>
+Alex Efros <powerman@cpan.org>
 
 # COPYRIGHT AND LICENSE
 
-This software is Copyright (c) 2014- by Alex Efros &lt;powerman@cpan.org>.
+This software is Copyright (c) 2014- by Alex Efros <powerman@cpan.org>.
 
 This is free software, licensed under:
 
