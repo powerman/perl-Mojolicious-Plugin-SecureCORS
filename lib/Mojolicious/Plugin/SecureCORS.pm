@@ -294,7 +294,7 @@ route).
 =item C<< 'cors.credentials' => undef >> (default)
 
 While handling preflight request true/false value will tell browser to
-send or not send credentials (cookies, http auth, ssl certificate) with
+send or not send credentials (cookies, http auth, SSL certificate) with
 actual request.
 
 While handling simple/actual request if set to false and browser has sent
