@@ -103,7 +103,7 @@ predefined defaults for their nested routes.
 
     Allow access to these headers while processing returned response.
 
-    These headers doesn't need to be included in this option:
+    These headers don't need to be included in this option:
 
         Cache-Control
         Content-Language
