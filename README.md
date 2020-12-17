@@ -7,7 +7,7 @@ Mojolicious::Plugin::SecureCORS - Complete control over CORS
 
 # VERSION
 
-This document describes Mojolicious::Plugin::SecureCORS version v2.0.2
+This document describes Mojolicious::Plugin::SecureCORS version v2.0.3
 
 # SYNOPSIS
 
