@@ -25,9 +25,9 @@ sub register {
 
     $root->add_shortcut(cors => sub {
         my ($r, @args) = @_;
-        return $r->route(@args)
-            ->via('OPTIONS')
-            ->over(
+        return $r->any(@args)
+            ->methods('OPTIONS')
+            ->requires(
                 headers => {
                     'Origin' => qr/\S/ms,
                     'Access-Control-Request-Method' => qr/\S/ms,
