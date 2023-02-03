@@ -7,7 +7,7 @@ Mojolicious::Plugin::SecureCORS - Complete control over CORS
 
 # VERSION
 
-This document describes Mojolicious::Plugin::SecureCORS version v2.0.4
+This document describes Mojolicious::Plugin::SecureCORS version v2.0.5
 
 # SYNOPSIS
 
@@ -39,7 +39,7 @@ This document describes Mojolicious::Plugin::SecureCORS version v2.0.4
 
 # DESCRIPTION
 
-[Mojolicious::Plugin::SecureCORS](https://metacpan.org/pod/Mojolicious::Plugin::SecureCORS) is a plugin that allow you to configure
+[Mojolicious::Plugin::SecureCORS](https://metacpan.org/pod/Mojolicious%3A%3APlugin%3A%3ASecureCORS) is a plugin that allow you to configure
 Cross Origin Resource Sharing for routes in [Mojolicious](https://metacpan.org/pod/Mojolicious) app.
 
 Implements this spec: [http://www.w3.org/TR/2014/REC-cors-20140116/](http://www.w3.org/TR/2014/REC-cors-20140116/).
@@ -131,7 +131,7 @@ predefined defaults for their nested routes.
 
     $app->routes->cors(...);
 
-Accept same params as ["any" in Mojolicious::Routes::Route](https://metacpan.org/pod/Mojolicious::Routes::Route#any).
+Accept same params as ["any" in Mojolicious::Routes::Route](https://metacpan.org/pod/Mojolicious%3A%3ARoutes%3A%3ARoute#any).
 
 Add handler for preflight (OPTIONS) CORS request - it's required to allow
 non-simple CORS requests on given path.
@@ -181,7 +181,7 @@ requests on same path.
 
     $route = $app->routes->under_strict_cors(...)
 
-Accept same params as ["under" in Mojolicious::Routes::Route](https://metacpan.org/pod/Mojolicious::Routes::Route#under).
+Accept same params as ["under" in Mojolicious::Routes::Route](https://metacpan.org/pod/Mojolicious%3A%3ARoutes%3A%3ARoute#under).
 
 Under returned route CORS requests to any route which isn't configured
 for CORS (i.e. won't have `'cors.origin'` in route's default parameters)
@@ -193,7 +193,7 @@ JavaScript into the victim's browser on vulnerable website. More details:
 
 # OPTIONS
 
-[Mojolicious::Plugin::SecureCORS](https://metacpan.org/pod/Mojolicious::Plugin::SecureCORS) supports the following options.
+[Mojolicious::Plugin::SecureCORS](https://metacpan.org/pod/Mojolicious%3A%3APlugin%3A%3ASecureCORS) supports the following options.
 
 ## max\_age
 
@@ -206,8 +206,8 @@ Default is 1800 (30 minutes).
 
 # METHODS
 
-[Mojolicious::Plugin::SecureCORS](https://metacpan.org/pod/Mojolicious::Plugin::SecureCORS) inherits all methods from
-[Mojolicious::Plugin](https://metacpan.org/pod/Mojolicious::Plugin) and implements the following new ones.
+[Mojolicious::Plugin::SecureCORS](https://metacpan.org/pod/Mojolicious%3A%3APlugin%3A%3ASecureCORS) inherits all methods from
+[Mojolicious::Plugin](https://metacpan.org/pod/Mojolicious%3A%3APlugin) and implements the following new ones.
 
 ## register
 
